@@ -97,6 +97,7 @@ unsigned int slabs_clsid(const size_t size) {
  */
 void slabs_init(const size_t limit, const double factor, const bool prealloc, const uint32_t *slab_sizes) {
     int i = POWER_SMALLEST - 1;
+    // One unit of chunk: metadata-item + data. Jichao
     unsigned int size = sizeof(item) + settings.chunk_size;
 
     mem_limit = limit;
