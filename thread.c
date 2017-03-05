@@ -517,6 +517,7 @@ item *item_alloc(char *key, size_t nkey, int flags, rel_time_t exptime, int nbyt
 item *item_get(const char *key, const size_t nkey, conn *c, const bool do_update) {
     item *it;
     uint32_t hv;
+    //Jichao: Get hash value based on pointer of key and key length.
     hv = hash(key, nkey);
     item_lock(hv);
     it = do_item_get(key, nkey, hv, c, do_update);
